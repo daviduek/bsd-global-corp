@@ -74,8 +74,10 @@ export default function OpenGraphImage() {
               maxWidth: 980,
             }}
           >
-            <span style={{ color: TEXT }}>Wholesale computing&nbsp;&amp;&nbsp;</span>
-            <span style={{ color: SIGNAL }}>electronics&nbsp;</span>
+            <span style={{ color: TEXT, paddingRight: 24 }}>
+              Wholesale computing &amp;
+            </span>
+            <span style={{ color: SIGNAL, paddingRight: 24 }}>electronics</span>
             <span style={{ color: TEXT }}>distribution.</span>
           </div>
           <div style={{ display: "flex", color: MUTED, fontSize: 30, maxWidth: 900 }}>
