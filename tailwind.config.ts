@@ -8,28 +8,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0E17",
-        panel: "#111726",
-        "panel-2": "#0E1420",
-        line: "#1F2A3D",
-        "line-soft": "#172033",
-        text: "#E8EEF9",
-        muted: "#8696B3",
-        "muted-2": "#5E6E8C",
-        signal: "#FFB020",
-        "signal-deep": "#C9791A",
-        "signal-soft": "#FFCB66",
+        // Light, corporate palette
+        bg: "#FFFFFF",
+        mist: "#F4F7FB", // alternating section background
+        line: "#E5EAF1", // hairlines / borders
+        "line-soft": "#EEF2F7",
+        ink: "#0F1E33", // headings — near-black navy
+        body: "#46566D", // paragraph text
+        muted: "#6B7A91",
+        "muted-2": "#93A1B5",
+        brand: "#1C50D8", // primary blue
+        "brand-deep": "#1740AE",
+        "brand-soft": "#EAF1FE", // tint backgrounds
       },
       fontFamily: {
         display: ["Archivo", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
       },
-      letterSpacing: {
-        tightest: "-0.04em",
-      },
-      maxWidth: {
-        shell: "1200px",
+      boxShadow: {
+        card: "0 1px 2px rgba(15, 30, 51, 0.04), 0 8px 24px -12px rgba(15, 30, 51, 0.12)",
+        "card-hover":
+          "0 2px 4px rgba(15, 30, 51, 0.05), 0 18px 40px -16px rgba(28, 80, 216, 0.22)",
       },
       keyframes: {
         "fade-up": {

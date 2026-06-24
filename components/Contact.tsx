@@ -53,70 +53,70 @@ export default function Contact() {
   };
 
   const inputClass =
-    "w-full border border-line bg-ink px-4 py-3 text-sm text-text placeholder:text-muted-2 transition-colors focus:border-signal focus:outline-none";
+    "w-full rounded-lg border border-line bg-bg px-4 py-3 text-sm text-ink placeholder:text-muted-2 transition-colors focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand-soft";
   const labelClass =
-    "mb-1.5 block font-mono text-[10px] tracking-[0.18em] text-muted-2";
+    "mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted";
 
   return (
-    <section id="contact" className="relative bg-ink py-24 md:py-32">
+    <section id="contact" className="bg-bg py-24 md:py-32">
       <div className="shell">
-        <div className="grid grid-cols-1 gap-px overflow-hidden border border-line bg-line lg:grid-cols-[1fr_1.25fr]">
+        <div className="grid grid-cols-1 overflow-hidden rounded-3xl border border-line shadow-card lg:grid-cols-[1fr_1.25fr]">
           {/* Info panel */}
-          <div className="flex flex-col justify-between gap-12 bg-panel-2 p-8 md:p-10">
+          <div className="flex flex-col justify-between gap-12 bg-mist p-8 md:p-10">
             <div>
               <p className="eyebrow">Request a quote</p>
-              <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-text text-balance sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-ink text-balance sm:text-4xl">
                 Let&apos;s talk supply.
               </h2>
-              <p className="mt-5 max-w-sm text-base leading-relaxed text-muted">
+              <p className="mt-5 max-w-sm text-base leading-relaxed text-body">
                 Tell us what you need and the volume you&apos;re working with.
-                We&apos;ll confirm availability, specs and pricing and get back to
-                you.
+                We&apos;ll confirm availability, specs and pricing and get back
+                to you.
               </p>
             </div>
 
-            <div className="space-y-px border border-line bg-line">
-              <div className="flex items-center gap-4 bg-ink px-5 py-4">
-                <span className="flex h-9 w-9 items-center justify-center border border-line text-signal">
+            <div className="space-y-3">
+              <div className="flex items-center gap-4 rounded-xl border border-line bg-bg px-5 py-4">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-soft text-brand">
                   <IconUser width={18} height={18} />
                 </span>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.18em] text-muted-2">
-                    PRIMARY CONTACT
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
+                    Primary contact
                   </p>
-                  <p className="font-display text-sm font-bold text-text">
+                  <p className="font-display text-sm font-bold text-ink">
                     José Javier Duek
                   </p>
                 </div>
               </div>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-4 bg-ink px-5 py-4 transition-colors hover:bg-panel"
+                className="flex items-center gap-4 rounded-xl border border-line bg-bg px-5 py-4 transition-colors hover:border-brand/40"
               >
-                <span className="flex h-9 w-9 items-center justify-center border border-line text-signal">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-soft text-brand">
                   <IconMail width={18} height={18} />
                 </span>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.18em] text-muted-2">
-                    EMAIL
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
+                    Email
                   </p>
-                  <p className="font-display text-sm font-bold text-text">
+                  <p className="font-display text-sm font-bold text-ink">
                     {EMAIL}
                   </p>
                 </div>
               </a>
               <a
                 href={`tel:${PHONE_HREF}`}
-                className="flex items-center gap-4 bg-ink px-5 py-4 transition-colors hover:bg-panel"
+                className="flex items-center gap-4 rounded-xl border border-line bg-bg px-5 py-4 transition-colors hover:border-brand/40"
               >
-                <span className="flex h-9 w-9 items-center justify-center border border-line text-signal">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-soft text-brand">
                   <IconPhone width={18} height={18} />
                 </span>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.18em] text-muted-2">
-                    PHONE
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
+                    Phone
                   </p>
-                  <p className="font-display text-sm font-bold text-text">
+                  <p className="font-display text-sm font-bold text-ink">
                     {PHONE_DISPLAY}
                   </p>
                 </div>
@@ -125,12 +125,12 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="bg-panel p-8 md:p-10">
+          <div className="bg-bg p-8 md:p-10">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClass}>
-                    FULL NAME
+                    Full name
                   </label>
                   <input
                     id="name"
@@ -143,7 +143,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label htmlFor="company" className={labelClass}>
-                    COMPANY
+                    Company
                   </label>
                   <input
                     id="company"
@@ -159,7 +159,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    WORK EMAIL
+                    Work email
                   </label>
                   <input
                     id="email"
@@ -173,7 +173,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label htmlFor="country" className={labelClass}>
-                    COUNTRY
+                    Country
                   </label>
                   <input
                     id="country"
@@ -187,7 +187,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="interest" className={labelClass}>
-                  CATEGORY OF INTEREST
+                  Category of interest
                 </label>
                 <select
                   id="interest"
@@ -196,7 +196,7 @@ export default function Contact() {
                   className={`${inputClass} appearance-none`}
                 >
                   {interests.map((opt) => (
-                    <option key={opt} value={opt} className="bg-ink">
+                    <option key={opt} value={opt}>
                       {opt}
                     </option>
                   ))}
@@ -205,7 +205,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="message" className={labelClass}>
-                  WHAT DO YOU NEED?
+                  What do you need?
                 </label>
                 <textarea
                   id="message"
@@ -217,11 +217,11 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-signal w-full">
+              <button type="submit" className="btn-primary w-full">
                 {sent ? "Opening your email…" : "Send quote request"}
                 <IconArrowRight width={18} height={18} />
               </button>
-              <p className="text-center font-mono text-[11px] leading-relaxed text-muted-2">
+              <p className="text-center text-xs leading-relaxed text-muted">
                 Opens your email client addressed to {EMAIL}. Prefer to write
                 directly? Use the contact details on the left.
               </p>

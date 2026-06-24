@@ -7,12 +7,14 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 // Brand tokens (kept in sync with tailwind.config.ts)
-const INK = "#0A0E17";
-const PANEL = "#0E1420";
-const LINE = "#1F2A3D";
-const TEXT = "#E8EEF9";
-const MUTED = "#8696B3";
-const SIGNAL = "#FFB020";
+const BG = "#FFFFFF";
+const MIST = "#F4F7FB";
+const LINE = "#E5EAF1";
+const INK = "#0F1E33";
+const BODY = "#46566D";
+const MUTED = "#93A1B5";
+const BRAND = "#1C50D8";
+const BRAND_SOFT = "#EAF1FE";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -24,27 +26,26 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: INK,
-          backgroundImage: `linear-gradient(to right, ${LINE}55 1px, transparent 1px), linear-gradient(to bottom, ${LINE}55 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
+          backgroundColor: BG,
+          backgroundImage: `linear-gradient(180deg, ${BRAND_SOFT} 0%, ${BG} 55%)`,
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
       >
         {/* Top row: monogram + entity */}
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: 64,
-              height: 64,
-              backgroundColor: SIGNAL,
-              color: INK,
-              fontSize: 40,
+              width: 60,
+              height: 60,
+              backgroundColor: BRAND,
+              color: "#FFFFFF",
+              fontSize: 38,
               fontWeight: 900,
-              borderRadius: 4,
+              borderRadius: 12,
             }}
           >
             B
@@ -53,8 +54,9 @@ export default function OpenGraphImage() {
             style={{
               color: MUTED,
               fontSize: 22,
-              letterSpacing: 6,
+              letterSpacing: 4,
               textTransform: "uppercase",
+              fontWeight: 600,
             }}
           >
             BSD Global Corp · Wyoming, USA
@@ -62,25 +64,25 @@ export default function OpenGraphImage() {
         </div>
 
         {/* Headline */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div
             style={{
               display: "flex",
               flexWrap: "wrap",
-              fontSize: 78,
+              fontSize: 76,
               fontWeight: 800,
               lineHeight: 1.04,
               letterSpacing: -2,
-              maxWidth: 980,
+              maxWidth: 1000,
             }}
           >
-            <span style={{ color: TEXT, paddingRight: 24 }}>
+            <span style={{ color: INK, paddingRight: 22 }}>
               Wholesale computing &amp;
             </span>
-            <span style={{ color: SIGNAL, paddingRight: 24 }}>electronics</span>
-            <span style={{ color: TEXT }}>distribution.</span>
+            <span style={{ color: BRAND, paddingRight: 22 }}>electronics</span>
+            <span style={{ color: INK }}>distribution.</span>
           </div>
-          <div style={{ display: "flex", color: MUTED, fontSize: 30, maxWidth: 900 }}>
+          <div style={{ display: "flex", color: BODY, fontSize: 30, maxWidth: 920 }}>
             Source. Stock. Distribute. Export. For resellers, distributors and
             corporate buyers across the United States.
           </div>
@@ -91,7 +93,7 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
+            gap: 14,
             borderTop: `1px solid ${LINE}`,
             paddingTop: 28,
           }}
@@ -102,12 +104,13 @@ export default function OpenGraphImage() {
                 key={t}
                 style={{
                   display: "flex",
-                  color: MUTED,
+                  color: BODY,
                   fontSize: 22,
+                  fontWeight: 500,
                   border: `1px solid ${LINE}`,
-                  backgroundColor: PANEL,
+                  backgroundColor: MIST,
                   padding: "8px 16px",
-                  borderRadius: 3,
+                  borderRadius: 8,
                 }}
               >
                 {t}

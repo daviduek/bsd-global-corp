@@ -14,7 +14,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,55 +29,51 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-line bg-ink/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-line bg-bg/85 backdrop-blur-md"
+          : "border-b border-transparent bg-bg/0"
       }`}
     >
       <div className="shell flex h-16 items-center justify-between md:h-[72px]">
         {/* Wordmark */}
-        <a href="#top" className="group flex items-center gap-3" aria-label="BSD Global Corp home">
-          <span className="flex h-9 w-9 items-center justify-center border border-line bg-panel">
-            <span className="font-display text-base font-black tracking-tightest text-signal">
+        <a
+          href="#top"
+          className="flex items-center gap-2.5"
+          aria-label="BSD Global Corp home"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand">
+            <span className="font-display text-base font-black text-white">
               B
             </span>
           </span>
-          <span className="leading-none">
-            <span className="block font-display text-base font-extrabold tracking-tight text-text">
-              BSD GLOBAL
-            </span>
-            <span className="block font-mono text-[10px] tracking-[0.28em] text-muted-2">
-              CORP · WY · USA
-            </span>
+          <span className="font-display text-[17px] font-extrabold tracking-tight text-ink">
+            BSD Global Corp
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-text"
+              className="text-sm font-medium text-muted transition-colors hover:text-ink"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href="#contact"
-            className="btn-signal text-sm"
-          >
+        <div className="hidden items-center lg:flex">
+          <a href="#contact" className="btn-primary text-sm">
             Request a quote
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="flex h-10 w-10 items-center justify-center border border-line text-text lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-ink lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -104,7 +100,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-line bg-ink/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-line bg-bg transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96 border-b" : "max-h-0"
         }`}
       >
@@ -114,7 +110,7 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="border-b border-line-soft py-3 font-display text-lg font-bold text-text"
+              className="border-b border-line-soft py-3 text-base font-semibold text-ink"
             >
               {l.label}
             </a>
@@ -122,7 +118,7 @@ export default function Nav() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="btn-signal mt-4 w-full"
+            className="btn-primary mt-4 w-full"
           >
             Request a quote
           </a>

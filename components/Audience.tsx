@@ -31,33 +31,28 @@ const audience = [
 
 export default function Audience() {
   return (
-    <section id="audience" className="relative border-t border-line bg-panel-2 py-24 md:py-32">
-      <div className="absolute inset-0 grid-texture opacity-[0.35]" aria-hidden="true" />
-      <div className="shell relative">
+    <section id="audience" className="border-y border-line bg-mist py-24 md:py-32">
+      <div className="shell">
         <Reveal>
-          <p className="eyebrow-muted">[ 02 ] Who we serve</p>
-          <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight tracking-tight text-text text-balance sm:text-4xl lg:text-5xl">
+          <p className="eyebrow">Who we serve</p>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight tracking-tight text-ink text-balance sm:text-4xl lg:text-[2.75rem]">
             Built for businesses that buy to sell, equip and export.
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {audience.map((a, i) => {
             const Icon = a.icon;
             return (
-              <Reveal
-                key={a.title}
-                delay={(i % 3) * 70}
-                className={i === 0 ? "lg:col-span-1" : ""}
-              >
-                <article className="flex h-full flex-col border border-line bg-ink p-7 transition-colors duration-300 hover:border-signal/30">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-signal/10 text-signal">
+              <Reveal key={a.title} delay={(i % 3) * 70}>
+                <article className="flex h-full flex-col rounded-2xl border border-line bg-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand">
                     <Icon width={20} height={20} />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-text">
+                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-ink">
                     {a.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted">
+                  <p className="mt-2.5 text-sm leading-relaxed text-body">
                     {a.desc}
                   </p>
                 </article>

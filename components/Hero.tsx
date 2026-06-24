@@ -1,45 +1,51 @@
-import DistributionGrid from "./DistributionGrid";
-import { IconArrowRight } from "./icons";
+import {
+  IconArrowRight,
+  IconLaptop,
+  IconChip,
+  IconNetwork,
+  IconGlobe,
+} from "./icons";
 
 const facts = [
-  { k: "ENTITY", v: "C-Corporation" },
-  { k: "JURISDICTION", v: "Wyoming, USA" },
-  { k: "MODEL", v: "B2B wholesale" },
-  { k: "REACH", v: "Export-ready" },
+  { k: "Entity", v: "C-Corporation" },
+  { k: "Jurisdiction", v: "Wyoming, USA" },
+  { k: "Model", v: "B2B wholesale" },
+  { k: "Reach", v: "Export-ready" },
+];
+
+const quickLines = [
+  { icon: IconLaptop, label: "Computers & notebooks" },
+  { icon: IconChip, label: "Components & hardware" },
+  { icon: IconNetwork, label: "Networking & connectivity" },
+  { icon: IconGlobe, label: "Electronics for export" },
 ];
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-ink">
-      {/* Signature: animated distribution / circuit network */}
-      <div className="pointer-events-none absolute inset-0">
-        <DistributionGrid />
-        {/* Legibility masks — keep type crisp over the network */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-transparent to-ink" />
-      </div>
+    <section id="top" className="relative overflow-hidden bg-bg">
+      {/* Soft brand wash at the top, fading to white */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-gradient-to-b from-brand-soft/70 via-bg to-bg"
+      />
 
-      <div className="shell relative flex min-h-[100svh] flex-col justify-center pb-20 pt-28 md:pt-32">
-        <div className="max-w-3xl">
-          <div className="animate-fade-up">
-            <p className="eyebrow flex items-center gap-3">
-              <span className="inline-block h-px w-8 bg-signal" />
-              Wholesale distribution · Computing &amp; electronics
-            </p>
-          </div>
+      <div className="shell relative grid items-center gap-14 pb-20 pt-28 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
+        {/* Copy */}
+        <div className="max-w-2xl">
+          <p className="eyebrow animate-fade-up">
+            Wholesale computing &amp; electronics
+          </p>
 
           <h1
-            className="mt-7 font-display text-[2.7rem] font-black leading-[0.98] tracking-tightest text-text text-balance animate-fade-up sm:text-6xl lg:text-[4.6rem]"
+            className="mt-5 font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-tight text-ink text-balance animate-fade-up sm:text-5xl lg:text-[3.6rem]"
             style={{ animationDelay: "80ms" }}
           >
-            The distribution backbone
-            <br />
-            for{" "}
-            <span className="text-signal">computing &amp; electronics</span>.
+            The distribution backbone for computing &amp;{" "}
+            <span className="text-brand">electronics</span>.
           </h1>
 
           <p
-            className="mt-7 max-w-xl text-lg leading-relaxed text-muted animate-fade-up"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-body animate-fade-up"
             style={{ animationDelay: "160ms" }}
           >
             BSD Global Corp sources, stocks and distributes computers, hardware
@@ -48,39 +54,74 @@ export default function Hero() {
           </p>
 
           <div
-            className="mt-9 flex flex-col gap-3 sm:flex-row animate-fade-up"
+            className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-up"
             style={{ animationDelay: "240ms" }}
           >
-            <a href="#contact" className="btn-signal">
+            <a href="#contact" className="btn-primary">
               Request a quote
               <IconArrowRight width={18} height={18} />
             </a>
-            <a href="#products" className="btn-ghost">
+            <a href="#products" className="btn-secondary">
               View product lines
             </a>
           </div>
 
-          {/* Entity manifest */}
+          {/* Trust facts */}
           <dl
-            className="mt-14 grid max-w-2xl grid-cols-2 gap-px overflow-hidden border border-line bg-line sm:grid-cols-4 animate-fade-up"
+            className="mt-12 grid max-w-xl grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 animate-fade-up"
             style={{ animationDelay: "320ms" }}
           >
             {facts.map((f) => (
-              <div key={f.k} className="bg-panel-2 px-4 py-4">
-                <dt className="font-mono text-[10px] tracking-[0.2em] text-muted-2">
+              <div key={f.k}>
+                <dt className="text-xs font-medium uppercase tracking-wide text-muted-2">
                   {f.k}
                 </dt>
-                <dd className="mt-1.5 font-display text-sm font-bold text-text">
+                <dd className="mt-1 font-display text-[15px] font-bold text-ink">
                   {f.v}
                 </dd>
               </div>
             ))}
           </dl>
         </div>
-      </div>
 
-      {/* Bottom hairline */}
-      <div className="relative h-px w-full bg-line" />
+        {/* Visual card */}
+        <div
+          className="animate-fade-up lg:justify-self-end"
+          style={{ animationDelay: "200ms" }}
+        >
+          <div className="w-full max-w-md rounded-2xl border border-line bg-bg p-7 shadow-card sm:p-8">
+            <p className="eyebrow">What we move</p>
+            <p className="mt-3 font-display text-xl font-bold text-ink">
+              A working catalog, sourced and stocked.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {quickLines.map((q) => {
+                const Icon = q.icon;
+                return (
+                  <li
+                    key={q.label}
+                    className="flex items-center gap-3.5 rounded-xl border border-line-soft bg-mist px-4 py-3.5"
+                  >
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-soft text-brand">
+                      <Icon width={18} height={18} />
+                    </span>
+                    <span className="text-sm font-semibold text-ink">
+                      {q.label}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            <a
+              href="#products"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-deep"
+            >
+              See all six product lines
+              <IconArrowRight width={16} height={16} />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

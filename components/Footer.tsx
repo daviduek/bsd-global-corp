@@ -22,35 +22,30 @@ const cols = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-panel-2">
+    <footer className="border-t border-line bg-mist">
       <div className="shell py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center border border-line bg-ink">
-                <span className="font-display text-base font-black tracking-tightest text-signal">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand">
+                <span className="font-display text-base font-black text-white">
                   B
                 </span>
               </span>
-              <span className="leading-none">
-                <span className="block font-display text-base font-extrabold tracking-tight text-text">
-                  BSD GLOBAL CORP
-                </span>
-                <span className="block font-mono text-[10px] tracking-[0.28em] text-muted-2">
-                  WYOMING · USA
-                </span>
+              <span className="font-display text-base font-extrabold tracking-tight text-ink">
+                BSD Global Corp
               </span>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-body">
               Wholesale distribution of computing and electronics for resellers,
               distributors and corporate buyers.
             </p>
             <a
               href="#contact"
-              className="mt-6 inline-flex items-center gap-2 font-mono text-xs tracking-[0.16em] text-signal transition-colors hover:text-signal-soft"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-deep"
             >
-              START AN INQUIRY
+              Start an inquiry
               <IconArrowRight width={14} height={14} />
             </a>
           </div>
@@ -58,15 +53,15 @@ export default function Footer() {
           {/* Link columns */}
           {cols.map((col) => (
             <div key={col.title}>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-muted-2">
-                {col.title.toUpperCase()}
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-2">
+                {col.title}
               </p>
               <ul className="mt-4 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.href}>
                     <a
                       href={l.href}
-                      className="text-sm text-muted transition-colors hover:text-text"
+                      className="text-sm text-muted transition-colors hover:text-ink"
                     >
                       {l.label}
                     </a>
@@ -78,13 +73,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="font-mono text-[11px] tracking-wide text-muted-2">
+          <p className="text-xs text-muted-2">
             © {year} BSD Global Corp · A Wyoming Corporation. All rights
             reserved.
           </p>
-          <p className="font-mono text-[11px] tracking-wide text-muted-2">
-            B2B wholesale · United States
-          </p>
+          <p className="text-xs text-muted-2">B2B wholesale · United States</p>
         </div>
       </div>
     </footer>
