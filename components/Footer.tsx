@@ -74,8 +74,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-muted-2">
-            © {year} BSD Global Corp · A Wyoming Corporation. All rights
-            reserved.
+            © {year} BSD Global Corp · A US Corporation. All rights reserved.
           </p>
           <p className="text-xs text-muted-2">B2B wholesale · United States</p>
         </div>

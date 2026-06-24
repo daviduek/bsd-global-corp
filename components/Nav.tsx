@@ -58,9 +58,10 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-ink"
+              className="group relative text-sm font-medium text-muted transition-colors hover:text-ink"
             >
               {l.label}
+              <span className="absolute -bottom-1.5 left-0 h-0.5 w-0 rounded-full bg-brand transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>

@@ -8,7 +8,7 @@ import {
 
 const facts = [
   { k: "Entity", v: "C-Corporation" },
-  { k: "Jurisdiction", v: "Wyoming, USA" },
+  { k: "Jurisdiction", v: "United States" },
   { k: "Model", v: "B2B wholesale" },
   { k: "Reach", v: "Export-ready" },
 ];
@@ -41,7 +41,14 @@ export default function Hero() {
             style={{ animationDelay: "80ms" }}
           >
             The distribution backbone for computing &amp;{" "}
-            <span className="text-brand">electronics</span>.
+            <span className="relative whitespace-nowrap text-brand">
+              electronics
+              <span
+                aria-hidden="true"
+                className="absolute -bottom-1 left-0 h-[3px] w-full origin-left rounded-full bg-brand/30 animate-draw-x motion-reduce:hidden"
+              />
+            </span>
+            .
           </h1>
 
           <p
@@ -57,9 +64,13 @@ export default function Hero() {
             className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-up"
             style={{ animationDelay: "240ms" }}
           >
-            <a href="#contact" className="btn-primary">
+            <a href="#contact" className="btn-primary group">
               Request a quote
-              <IconArrowRight width={18} height={18} />
+              <IconArrowRight
+                width={18}
+                height={18}
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
             </a>
             <a href="#products" className="btn-secondary">
               View product lines
@@ -86,10 +97,15 @@ export default function Hero() {
 
         {/* Visual card */}
         <div
-          className="animate-fade-up lg:justify-self-end"
+          className="relative animate-fade-up lg:justify-self-end"
           style={{ animationDelay: "200ms" }}
         >
-          <div className="w-full max-w-md rounded-2xl border border-line bg-bg p-7 shadow-card sm:p-8">
+          {/* Soft animated glow */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-8 -z-10 rounded-[40px] bg-brand/20 blur-3xl animate-glow motion-reduce:hidden"
+          />
+          <div className="w-full max-w-md rounded-2xl border border-line bg-bg p-7 shadow-card animate-float motion-reduce:animate-none sm:p-8">
             <p className="eyebrow">What we move</p>
             <p className="mt-3 font-display text-xl font-bold text-ink">
               A working catalog, sourced and stocked.

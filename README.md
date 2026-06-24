@@ -1,12 +1,12 @@
 # BSD Global Corp — Website
 
-Marketing site for **BSD Global Corp**, a Wyoming-based wholesale distributor of
+Marketing site for **BSD Global Corp**, a US-based wholesale distributor of
 computing and electronics serving resellers, distributors and corporate buyers
 across the United States.
 
 Built with **Next.js 14 (App Router)**, **TypeScript** and **Tailwind CSS**.
-Designed dark and engineered: deep-navy palette, an amber "signal" accent, and a
-hero with an animated distribution/circuit network.
+Clean, light corporate design: white surfaces, a blue brand accent, rounded
+cards with soft shadows, and tasteful scroll/entrance animations.
 
 ---
 

@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     template: "%s · BSD Global Corp",
   },
   description:
-    "BSD Global Corp is a Wyoming-based wholesale distributor of computers, notebooks, hardware components, peripherals and electronics for resellers, distributors and corporate buyers across the United States.",
+    "BSD Global Corp is a US-based wholesale distributor of computers, notebooks, hardware components, peripherals and electronics for resellers, distributors and corporate buyers across the United States.",
   keywords: [
     "wholesale electronics distributor",
     "computer wholesale USA",
     "B2B IT distribution",
     "notebooks wholesale",
     "hardware components distributor",
-    "Wyoming corporation",
+    "US corporation",
     "export computing electronics",
   ],
   authors: [{ name: "BSD Global Corp" }],

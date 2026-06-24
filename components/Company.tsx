@@ -3,8 +3,8 @@ import Reveal from "./Reveal";
 const points = [
   {
     k: "US-based",
-    t: "A Wyoming corporation",
-    d: "Incorporated in Wyoming and operating from the United States, BSD Global Corp is structured for stable, long-term commercial relationships.",
+    t: "A US corporation",
+    d: "Incorporated and operating in the United States, BSD Global Corp is structured for stable, long-term commercial relationships.",
   },
   {
     k: "B2B only",
@@ -56,7 +56,7 @@ export default function Company() {
             <span className="font-display text-base font-bold text-ink">
               BSD Global Corp · Corporation
             </span>
-            <span className="text-sm text-muted">Wyoming, United States</span>
+            <span className="text-sm text-muted">United States</span>
           </div>
         </Reveal>
 

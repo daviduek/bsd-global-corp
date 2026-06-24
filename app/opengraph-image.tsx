@@ -59,7 +59,7 @@ export default function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            BSD Global Corp · Wyoming, USA
+            BSD Global Corp · United States
           </div>
         </div>
 

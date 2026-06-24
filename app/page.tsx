@@ -1,3 +1,4 @@
+import ScrollProgress from "@/components/ScrollProgress";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
@@ -21,7 +22,6 @@ const orgJsonLd = {
     "@type": "Place",
     address: {
       "@type": "PostalAddress",
-      addressRegion: "Wyoming",
       addressCountry: "US",
     },
   },
@@ -41,6 +41,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
+      <ScrollProgress />
       <Nav />
       <main>
         <Hero />

@@ -37,7 +37,7 @@ export default function Process() {
         <ol className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 80} as="li">
-              <div className="flex h-full flex-col rounded-2xl border border-line bg-bg p-7 shadow-card">
+              <div className="flex h-full flex-col rounded-2xl border border-line bg-bg p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
                     {s.n}
