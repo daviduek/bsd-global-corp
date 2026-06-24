@@ -1,36 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { useLang } from "./LanguageProvider";
 import { IconMail, IconPhone, IconUser, IconArrowRight } from "./icons";
-
-const interests = [
-  "Computers & Notebooks",
-  "Components & Hardware",
-  "Peripherals & Input",
-  "Networking & Connectivity",
-  "Storage & Memory",
-  "Accessories & Electronics",
-  "General / Multiple categories",
-];
 
 const EMAIL = "bsdglobalcorp@gmail.com";
 const PHONE_DISPLAY = "+54 9 11 3383-2945";
 const PHONE_HREF = "+5491133832945";
 
 export default function Contact() {
+  const { t } = useLang();
+  const c = t.contact;
+
   const [form, setForm] = useState({
     name: "",
     company: "",
     email: "",
     country: "",
-    interest: interests[0],
+    interestIdx: 0,
     message: "",
   });
   const [sent, setSent] = useState(false);
 
   const update = (k: keyof typeof form) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  ) =>
+    setForm((f) => ({
+      ...f,
+      [k]: k === "interestIdx" ? Number(e.target.value) : e.target.value,
+    }));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,7 +38,7 @@ export default function Contact() {
       `Company: ${form.company}`,
       `Email: ${form.email}`,
       `Country: ${form.country}`,
-      `Interest: ${form.interest}`,
+      `Interest: ${c.interests[form.interestIdx]}`,
       "",
       "Message:",
       form.message,
@@ -64,14 +62,12 @@ export default function Contact() {
           {/* Info panel */}
           <div className="flex flex-col justify-between gap-12 bg-mist p-8 md:p-10">
             <div>
-              <p className="eyebrow">Request a quote</p>
+              <p className="eyebrow">{c.eyebrow}</p>
               <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-ink text-balance sm:text-4xl">
-                Let&apos;s talk supply.
+                {c.h2}
               </h2>
               <p className="mt-5 max-w-sm text-base leading-relaxed text-body">
-                Tell us what you need and the volume you&apos;re working with.
-                We&apos;ll confirm availability, specs and pricing and get back
-                to you.
+                {c.subcopy}
               </p>
             </div>
 
@@ -82,10 +78,10 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
-                    Primary contact
+                    {c.primaryContact}
                   </p>
                   <p className="font-display text-sm font-bold text-ink">
-                    José Javier Duek
+                    {c.contactName}
                   </p>
                 </div>
               </div>
@@ -98,7 +94,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
-                    Email
+                    {c.emailLabel}
                   </p>
                   <p className="font-display text-sm font-bold text-ink">
                     {EMAIL}
@@ -114,7 +110,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
-                    Phone
+                    {c.phoneLabel}
                   </p>
                   <p className="font-display text-sm font-bold text-ink">
                     {PHONE_DISPLAY}
@@ -130,7 +126,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClass}>
-                    Full name
+                    {c.fullName}
                   </label>
                   <input
                     id="name"
@@ -138,12 +134,12 @@ export default function Contact() {
                     value={form.name}
                     onChange={update("name")}
                     className={inputClass}
-                    placeholder="Jane Smith"
+                    placeholder={c.placeholders.name}
                   />
                 </div>
                 <div>
                   <label htmlFor="company" className={labelClass}>
-                    Company
+                    {c.company}
                   </label>
                   <input
                     id="company"
@@ -151,7 +147,7 @@ export default function Contact() {
                     value={form.company}
                     onChange={update("company")}
                     className={inputClass}
-                    placeholder="Acme Distribution LLC"
+                    placeholder={c.placeholders.company}
                   />
                 </div>
               </div>
@@ -159,7 +155,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    Work email
+                    {c.workEmail}
                   </label>
                   <input
                     id="email"
@@ -168,35 +164,35 @@ export default function Contact() {
                     value={form.email}
                     onChange={update("email")}
                     className={inputClass}
-                    placeholder="jane@company.com"
+                    placeholder={c.placeholders.email}
                   />
                 </div>
                 <div>
                   <label htmlFor="country" className={labelClass}>
-                    Country
+                    {c.country}
                   </label>
                   <input
                     id="country"
                     value={form.country}
                     onChange={update("country")}
                     className={inputClass}
-                    placeholder="United States"
+                    placeholder={c.placeholders.country}
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="interest" className={labelClass}>
-                  Category of interest
+                  {c.category}
                 </label>
                 <select
                   id="interest"
-                  value={form.interest}
-                  onChange={update("interest")}
+                  value={form.interestIdx}
+                  onChange={update("interestIdx")}
                   className={`${inputClass} appearance-none`}
                 >
-                  {interests.map((opt) => (
-                    <option key={opt} value={opt}>
+                  {c.interests.map((opt, i) => (
+                    <option key={i} value={i}>
                       {opt}
                     </option>
                   ))}
@@ -205,7 +201,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="message" className={labelClass}>
-                  What do you need?
+                  {c.needs}
                 </label>
                 <textarea
                   id="message"
@@ -213,17 +209,18 @@ export default function Contact() {
                   value={form.message}
                   onChange={update("message")}
                   className={`${inputClass} resize-none`}
-                  placeholder="Products, quantities, target timeline…"
+                  placeholder={c.placeholders.needs}
                 />
               </div>
 
               <button type="submit" className="btn-primary w-full">
-                {sent ? "Opening your email…" : "Send quote request"}
+                {sent ? c.submitting : c.submit}
                 <IconArrowRight width={18} height={18} />
               </button>
               <p className="text-center text-xs leading-relaxed text-muted">
-                Opens your email client addressed to {EMAIL}. Prefer to write
-                directly? Use the contact details on the left.
+                {c.disclaimerPre}
+                {EMAIL}
+                {c.disclaimerPost}
               </p>
             </form>
           </div>

@@ -1,17 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const links = [
-  { href: "#products", label: "Products" },
-  { href: "#audience", label: "Who we serve" },
-  { href: "#process", label: "How we work" },
-  { href: "#company", label: "Company" },
-];
+import { useLang } from "./LanguageProvider";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Nav() {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: "#products", label: t.nav.products },
+    { href: "#audience", label: t.nav.audience },
+    { href: "#process", label: t.nav.process },
+    { href: "#company", label: t.nav.company },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,7 +43,7 @@ export default function Nav() {
         <a
           href="#top"
           className="flex items-center gap-2.5"
-          aria-label="BSD Global Corp home"
+          aria-label="BSD Global Corp"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand">
             <span className="font-display text-base font-black text-white">
@@ -66,9 +69,10 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden items-center lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageToggle />
           <a href="#contact" className="btn-primary text-sm">
-            Request a quote
+            {t.nav.cta}
           </a>
         </div>
 
@@ -102,7 +106,7 @@ export default function Nav() {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden border-line bg-bg transition-[max-height] duration-300 lg:hidden ${
-          open ? "max-h-96 border-b" : "max-h-0"
+          open ? "max-h-[28rem] border-b" : "max-h-0"
         }`}
       >
         <nav className="shell flex flex-col gap-1 py-4" aria-label="Mobile">
@@ -116,12 +120,15 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <div className="flex items-center justify-between pt-4">
+            <LanguageToggle />
+          </div>
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="btn-primary mt-4 w-full"
+            className="btn-primary mt-3 w-full"
           >
-            Request a quote
+            {t.nav.cta}
           </a>
         </nav>
       </div>

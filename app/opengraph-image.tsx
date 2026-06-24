@@ -59,7 +59,7 @@ export default function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            BSD Global Corp · United States
+            BSD Global Corp · Estados Unidos
           </div>
         </div>
 
@@ -69,22 +69,21 @@ export default function OpenGraphImage() {
             style={{
               display: "flex",
               flexWrap: "wrap",
-              fontSize: 76,
+              fontSize: 70,
               fontWeight: 800,
               lineHeight: 1.04,
               letterSpacing: -2,
-              maxWidth: 1000,
+              maxWidth: 1040,
             }}
           >
-            <span style={{ color: INK, paddingRight: 22 }}>
-              Wholesale computing &amp;
+            <span style={{ color: INK, paddingRight: 20 }}>
+              Distribución mayorista de computación y
             </span>
-            <span style={{ color: BRAND, paddingRight: 22 }}>electronics</span>
-            <span style={{ color: INK }}>distribution.</span>
+            <span style={{ color: BRAND }}>electrónica.</span>
           </div>
-          <div style={{ display: "flex", color: BODY, fontSize: 30, maxWidth: 920 }}>
-            Source. Stock. Distribute. Export. For resellers, distributors and
-            corporate buyers across the United States.
+          <div style={{ display: "flex", color: BODY, fontSize: 30, maxWidth: 960 }}>
+            Adquirir. Almacenar. Distribuir. Exportar. Para revendedores,
+            distribuidores y empresas.
           </div>
         </div>
 
@@ -98,7 +97,7 @@ export default function OpenGraphImage() {
             paddingTop: 28,
           }}
         >
-          {["Computers", "Components", "Peripherals", "Networking", "Storage"].map(
+          {["Computadoras", "Componentes", "Periféricos", "Redes", "Almacenamiento"].map(
             (t) => (
               <div
                 key={t}

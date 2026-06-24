@@ -15,7 +15,7 @@ const orgJsonLd = {
   name: "BSD Global Corp",
   url: siteUrl,
   description:
-    "Wholesale distribution of computers, notebooks, hardware components, peripherals and electronics for businesses across the United States.",
+    "Distribución mayorista de computadoras, notebooks, componentes de hardware, periféricos y electrónica para empresas, con base en Estados Unidos.",
   email: "bsdglobalcorp@gmail.com",
   telephone: "+54-9-11-3383-2945",
   foundingLocation: {

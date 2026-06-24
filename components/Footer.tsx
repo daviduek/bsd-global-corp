@@ -1,26 +1,15 @@
+"use client";
+
+import { useLang } from "./LanguageProvider";
 import { IconArrowRight } from "./icons";
 
-const cols = [
-  {
-    title: "Catalog",
-    links: [
-      { href: "#products", label: "Product lines" },
-      { href: "#audience", label: "Who we serve" },
-      { href: "#process", label: "How we work" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { href: "#company", label: "About BSD" },
-      { href: "#contact", label: "Request a quote" },
-      { href: "#top", label: "Back to top" },
-    ],
-  },
-];
+const catalogHrefs = ["#products", "#audience", "#process"];
+const companyHrefs = ["#company", "#contact", "#top"];
 
 export default function Footer() {
+  const { t } = useLang();
   const year = new Date().getFullYear();
+
   return (
     <footer className="border-t border-line bg-mist">
       <div className="shell py-16">
@@ -38,45 +27,59 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-body">
-              Wholesale distribution of computing and electronics for resellers,
-              distributors and corporate buyers.
+              {t.footer.description}
             </p>
             <a
               href="#contact"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-deep"
             >
-              Start an inquiry
+              {t.footer.startInquiry}
               <IconArrowRight width={14} height={14} />
             </a>
           </div>
 
           {/* Link columns */}
-          {cols.map((col) => (
-            <div key={col.title}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-2">
-                {col.title}
-              </p>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      className="text-sm text-muted transition-colors hover:text-ink"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-2">
+              {t.footer.catalogTitle}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {t.footer.catalogLinks.map((label, i) => (
+                <li key={catalogHrefs[i]}>
+                  <a
+                    href={catalogHrefs[i]}
+                    className="text-sm text-muted transition-colors hover:text-ink"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-2">
+              {t.footer.companyTitle}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {t.footer.companyLinks.map((label, i) => (
+                <li key={companyHrefs[i]}>
+                  <a
+                    href={companyHrefs[i]}
+                    className="text-sm text-muted transition-colors hover:text-ink"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-muted-2">
-            © {year} BSD Global Corp · A US Corporation. All rights reserved.
+            © {year} BSD Global Corp · {t.footer.rights}
           </p>
-          <p className="text-xs text-muted-2">B2B wholesale · United States</p>
+          <p className="text-xs text-muted-2">{t.footer.tagline}</p>
         </div>
       </div>
     </footer>

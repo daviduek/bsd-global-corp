@@ -1,39 +1,42 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteUrl } from "./site";
+import LanguageProvider from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   title: {
-    default: "BSD Global Corp — Wholesale Computing & Electronics Distribution",
+    default: "BSD Global Corp — Distribución mayorista de computación y electrónica",
     template: "%s · BSD Global Corp",
   },
   description:
-    "BSD Global Corp is a US-based wholesale distributor of computers, notebooks, hardware components, peripherals and electronics for resellers, distributors and corporate buyers across the United States.",
+    "BSD Global Corp es un distribuidor mayorista con base en EE. UU. de computadoras, notebooks, componentes de hardware, periféricos y electrónica para revendedores, distribuidores y compradores corporativos.",
   keywords: [
-    "wholesale electronics distributor",
-    "computer wholesale USA",
-    "B2B IT distribution",
-    "notebooks wholesale",
-    "hardware components distributor",
-    "US corporation",
-    "export computing electronics",
+    "distribuidor mayorista de electrónica",
+    "computación al por mayor",
+    "mayorista de tecnología B2B",
+    "notebooks al por mayor",
+    "distribuidor de hardware",
+    "wholesale electronics distributor USA",
+    "exportación computación electrónica",
   ],
   authors: [{ name: "BSD Global Corp" }],
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "BSD Global Corp — Wholesale Computing & Electronics Distribution",
+    locale: "es_ES",
+    alternateLocale: "en_US",
+    title: "BSD Global Corp — Distribución mayorista de computación y electrónica",
     description:
-      "US-based wholesale distribution of computing and electronics for businesses, resellers and exporters.",
+      "Distribución mayorista de computación y electrónica con base en EE. UU. para empresas, revendedores y exportadores.",
     siteName: "BSD Global Corp",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BSD Global Corp — Wholesale Computing & Electronics",
+    title: "BSD Global Corp — Computación y electrónica al por mayor",
     description:
-      "US-based wholesale distribution of computing and electronics for businesses, resellers and exporters.",
+      "Distribución mayorista de computación y electrónica con base en EE. UU. para empresas, revendedores y exportadores.",
   },
   robots: { index: true, follow: true },
 };
@@ -44,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -57,7 +60,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

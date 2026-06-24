@@ -1,48 +1,27 @@
+"use client";
+
 import Reveal from "./Reveal";
+import { useLang } from "./LanguageProvider";
 import { IconTag, IconBox, IconHandshake, IconShield, IconGlobe } from "./icons";
 
-const audience = [
-  {
-    icon: IconTag,
-    title: "Resellers",
-    desc: "Stock fast-moving lines at wholesale margins and keep your shelves and storefronts supplied.",
-  },
-  {
-    icon: IconBox,
-    title: "Distributors",
-    desc: "Reliable upstream supply with volume pricing to feed your own distribution network.",
-  },
-  {
-    icon: IconHandshake,
-    title: "Specialty retailers",
-    desc: "Curated computing and electronics for shops that serve a focused customer base.",
-  },
-  {
-    icon: IconShield,
-    title: "Corporate procurement",
-    desc: "Equip teams and refresh fleets with consistent sourcing and a single point of contact.",
-  },
-  {
-    icon: IconGlobe,
-    title: "Exporters",
-    desc: "Source US-market product for export programs, built for partners moving goods across borders.",
-  },
-];
+const icons = [IconTag, IconBox, IconHandshake, IconShield, IconGlobe];
 
 export default function Audience() {
+  const { t } = useLang();
+
   return (
     <section id="audience" className="border-y border-line bg-mist py-24 md:py-32">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow">Who we serve</p>
+          <p className="eyebrow">{t.audience.eyebrow}</p>
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight tracking-tight text-ink text-balance sm:text-4xl lg:text-[2.75rem]">
-            Built for businesses that buy to sell, equip and export.
+            {t.audience.h2}
           </h2>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {audience.map((a, i) => {
-            const Icon = a.icon;
+          {t.audience.items.map((a, i) => {
+            const Icon = icons[i];
             return (
               <Reveal key={a.title} delay={(i % 3) * 70}>
                 <article className="flex h-full flex-col rounded-2xl border border-line bg-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
