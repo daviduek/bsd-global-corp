@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-const siteUrl = "https://bsdglobalcorp.com";
+import { siteUrl } from "./site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
   title: {
     default: "BSD Global Corp — Wholesale Computing & Electronics Distribution",
     template: "%s · BSD Global Corp",

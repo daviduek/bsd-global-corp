@@ -6,11 +6,13 @@ import Process from "@/components/Process";
 import Company from "@/components/Company";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { siteUrl } from "./site";
 
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "BSD Global Corp",
+  url: siteUrl,
   description:
     "Wholesale distribution of computers, notebooks, hardware components, peripherals and electronics for businesses across the United States.",
   email: "bsdglobalcorp@gmail.com",
