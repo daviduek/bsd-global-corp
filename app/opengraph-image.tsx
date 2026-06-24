@@ -65,7 +65,8 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              color: TEXT,
+              display: "flex",
+              flexWrap: "wrap",
               fontSize: 78,
               fontWeight: 800,
               lineHeight: 1.04,
@@ -73,10 +74,11 @@ export default function OpenGraphImage() {
               maxWidth: 980,
             }}
           >
-            Wholesale computing &{" "}
-            <span style={{ color: SIGNAL }}>electronics</span> distribution.
+            <span style={{ color: TEXT }}>Wholesale computing&nbsp;&amp;&nbsp;</span>
+            <span style={{ color: SIGNAL }}>electronics&nbsp;</span>
+            <span style={{ color: TEXT }}>distribution.</span>
           </div>
-          <div style={{ color: MUTED, fontSize: 30, maxWidth: 900 }}>
+          <div style={{ display: "flex", color: MUTED, fontSize: 30, maxWidth: 900 }}>
             Source. Stock. Distribute. Export. For resellers, distributors and
             corporate buyers across the United States.
           </div>
