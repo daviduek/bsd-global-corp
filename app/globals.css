@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: #0a0e17;
+  color: #e8eef9;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #ffb020;
+  color: #0a0e17;
+}
+
+/* Focus visibility — accessibility floor */
+:focus-visible {
+  outline: 2px solid #ffb020;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 40px;
+    }
+  }
+
+  /* Mono eyebrow / coordinate label */
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ffb020;
+  }
+
+  .eyebrow-muted {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #5e6e8c;
+  }
+
+  /* Hairline grid texture for section backgrounds */
+  .grid-texture {
+    background-image:
+      linear-gradient(to right, rgba(31, 42, 61, 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 42, 61, 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .btn-signal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #ffb020;
+    color: #0a0e17;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+    transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 0 0 0 rgba(255, 176, 32, 0);
+  }
+  .btn-signal:hover {
+    background-color: #ffcb66;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px -10px rgba(255, 176, 32, 0.55);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #e8eef9;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 2px;
+    border: 1px solid #1f2a3d;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .btn-ghost:hover {
+    border-color: #ffb020;
+    background-color: rgba(255, 176, 32, 0.06);
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
